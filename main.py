@@ -10,6 +10,8 @@ async def echo(update, context):
     if (update.message.message_thread_id != THEME_CHAT_ID):
         print(2)
         await context.bot.send_message(chat_id=SUPERGROUP_ID, text=smth_to_send, message_thread_id=THEME_CHAT_ID)
+    else:
+        await update.message.reply_text(smth_to_send)
 
 if __name__ == '__main__':
     application = ApplicationBuilder().token(TOKEN).build()
